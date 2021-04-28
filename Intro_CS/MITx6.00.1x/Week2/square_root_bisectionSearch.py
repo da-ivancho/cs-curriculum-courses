@@ -1,7 +1,7 @@
 x = 25
 epsilon = 0.01
 numGuesses = 0
-low = 1.0
+low = 0.0
 high = x
 ans = (high + low)/2.0
 
