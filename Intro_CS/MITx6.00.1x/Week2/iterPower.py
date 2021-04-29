@@ -14,3 +14,4 @@ def iterPower(base, exp):
 print(iterPower(-3.77, 0))
 print(iterPower(-4.97, 6))
 print(iterPower(9.78, 7))
+print(iterPower(2, 0))
