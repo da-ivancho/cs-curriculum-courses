@@ -65,7 +65,14 @@ def getGuessedWord(secretWord, lettersGuessed):
     returns: string, comprised of letters and underscores that represents
       what letters in secretWord have been guessed so far.
     '''
-    # FILL IN YOUR CODE HERE...
+    lettersStr = ''
+    for letter in secretWord:
+      if letter in lettersGuessed:
+        lettersStr += letter
+      else:
+        lettersStr += ' _ '
+    
+    return lettersStr
 
 
 
@@ -122,3 +129,11 @@ print("Unit Test #3:", isWordGuessed('coconut', ['v', 'b', 's', 'q', 'i', 'a', '
 print("Unit Test #4:", isWordGuessed('broccoli', ['v', 't', 'a', 'q', 'o', 'w', 'f', 'z', 's', 'c']))
 print("Unit Test #5:", isWordGuessed('lettuce', []))
 print("Unit Test #6:", isWordGuessed('mangosteen', ['z', 'x', 'q', 'm', 'a', 'n', 'g', 'o', 's', 't', 'e', 'e', 'n']))
+print("")
+print("getGuessedWord")
+print("Unit Test #1", getGuessedWord('apple', ['e', 'i', 'k', 'p', 'r', 's']))
+print("Unit Test #2", getGuessedWord('durian', ['a', 'c', 'd', 'h', 'i', 'm', 'n', 'r', 't', 'u']))
+print("Unit Test #3", getGuessedWord('banana', ['l', 'v', 'q', 'x', 'o', 'n', 'd', 'h', 'w', 'm']))
+print("Unit Test #4", getGuessedWord('mangosteen', ['d', 'c', 'f', 'i', 'z', 'o', 'p', 'u', 's', 'r']))
+print("Unit Test #5", getGuessedWord('mangosteen', []))
+print("Unit Test #6", getGuessedWord('coconut', ['y', 'e', 'l', 'b', 'q', 'f', 's', 't', 'n', 'o']))
