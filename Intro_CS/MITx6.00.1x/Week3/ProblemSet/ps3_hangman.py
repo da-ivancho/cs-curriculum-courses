@@ -114,22 +114,49 @@ def hangman(secretWord):
 
     Follows the other limitations detailed in the problem write-up.
     '''
-    # FILL IN YOUR CODE HERE...
+    guessesLeft = 8
+    lettersGuessed = []
+    print('Welcome to the game, Hangman!')
+    print('I am thinking of a word that is ' + str(len(secretWord)) + ' letters long.')
+    
+    while guessesLeft > 0:
+      print('-------------')
+      print('You have ' + str(guessesLeft) + ' guesses left.')
+      print('Available letters:', getAvailableLetters(lettersGuessed))
+      guess = input('Please guess a letter:')
+      guess = guess.lower()
 
+      if guess in lettersGuessed:
+        print("Oops! You've already guessed that letter:", getGuessedWord(secretWord, lettersGuessed))
+      else:
+        lettersGuessed.append(guess)
+        if isWordGuessed(secretWord, lettersGuessed):
+          print('Good guess:', getGuessedWord(secretWord, lettersGuessed))
+          print('-------------')
+          break
+        else:
+          if guess in secretWord:
+            print('Good guess:', getGuessedWord(secretWord, lettersGuessed))
+          else:
+            print('Oops! That letter is not in my word:', getGuessedWord(secretWord, lettersGuessed))
+            guessesLeft -= 1
 
-
-
+    if isWordGuessed(secretWord, lettersGuessed):
+      print('Congratulations, you won!')
+    elif guessesLeft == 0:
+      print('Sorry, you ran out of guesses. The word was:', secretWord)
+  
 
 
 # When you've completed your hangman function, uncomment these two lines
 # and run this file to test! (hint: you might want to pick your own
 # secretWord while you're testing)
 
-# secretWord = chooseWord(wordlist).lower()
-# hangman(secretWord)
+secretWord = chooseWord(wordlist).lower()
+hangman(secretWord)
 
 # Unit Tests
-print("isWordGuessed")
+""" print("isWordGuessed")
 secretWord = 'apple' 
 lettersGuessed = ['e', 'i', 'k', 'p', 'r', 's']
 print("Unit Test #1:", isWordGuessed(secretWord, lettersGuessed))
@@ -153,4 +180,4 @@ print("Unit Test #2", getAvailableLetters([]))
 print("Unit Test #3", getAvailableLetters(['s', 'm', 'u', 'k', 'x', 'd', 't', 'o', 'p', 'i', 'v']))
 print("Unit Test #4", getAvailableLetters(['o', 'j', 'w']))
 print("Unit Test #5", getAvailableLetters(['c', 'v', 'g', 'i', 'e']))
-print("Unit Test #6", getAvailableLetters(['v', 't', 'i', 'a', 'q', 'k', 'o', 'x', 'c', 'n', 'm', 'j']))
+print("Unit Test #6", getAvailableLetters(['v', 't', 'i', 'a', 'q', 'k', 'o', 'x', 'c', 'n', 'm', 'j'])) """
