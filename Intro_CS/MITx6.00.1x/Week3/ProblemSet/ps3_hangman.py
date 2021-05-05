@@ -50,7 +50,11 @@ def isWordGuessed(secretWord, lettersGuessed):
     returns: boolean, True if all the letters of secretWord are in lettersGuessed;
       False otherwise
     '''
-    # FILL IN YOUR CODE HERE...
+    for letter in secretWord:
+      if letter not in lettersGuessed:
+        return False
+    
+    return True
 
 
 
@@ -107,3 +111,14 @@ def hangman(secretWord):
 
 # secretWord = chooseWord(wordlist).lower()
 # hangman(secretWord)
+
+# Unit Tests
+print("isWordGuessed")
+secretWord = 'apple' 
+lettersGuessed = ['e', 'i', 'k', 'p', 'r', 's']
+print("Unit Test #1:", isWordGuessed(secretWord, lettersGuessed))
+print("Unit Test #2:", isWordGuessed('durian', ['h', 'a', 'c', 'd', 'i', 'm', 'n', 'r', 't', 'u']))
+print("Unit Test #3:", isWordGuessed('coconut', ['v', 'b', 's', 'q', 'i', 'a', 'e', 'g', 'w', 'r']))
+print("Unit Test #4:", isWordGuessed('broccoli', ['v', 't', 'a', 'q', 'o', 'w', 'f', 'z', 's', 'c']))
+print("Unit Test #5:", isWordGuessed('lettuce', []))
+print("Unit Test #6:", isWordGuessed('mangosteen', ['z', 'x', 'q', 'm', 'a', 'n', 'g', 'o', 's', 't', 'e', 'e', 'n']))
