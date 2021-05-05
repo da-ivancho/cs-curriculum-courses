@@ -8,6 +8,7 @@
 # (so be sure to read the docstrings!)
 
 import random
+import string
 
 WORDLIST_FILENAME = "words.txt"
 
@@ -82,7 +83,15 @@ def getAvailableLetters(lettersGuessed):
     returns: string, comprised of letters that represents what letters have not
       yet been guessed.
     '''
-    # FILL IN YOUR CODE HERE...
+    letters = string.ascii_lowercase
+    lettersNotGuessed = ''
+
+    for letter in letters:
+      if letter not in lettersGuessed:
+        lettersNotGuessed += letter
+    
+    return lettersNotGuessed
+     
     
 
 def hangman(secretWord):
@@ -137,3 +146,11 @@ print("Unit Test #3", getGuessedWord('banana', ['l', 'v', 'q', 'x', 'o', 'n', 'd
 print("Unit Test #4", getGuessedWord('mangosteen', ['d', 'c', 'f', 'i', 'z', 'o', 'p', 'u', 's', 'r']))
 print("Unit Test #5", getGuessedWord('mangosteen', []))
 print("Unit Test #6", getGuessedWord('coconut', ['y', 'e', 'l', 'b', 'q', 'f', 's', 't', 'n', 'o']))
+print('')
+print('getAvailableLetters')
+print("Unit Test #1", getAvailableLetters(['e', 'i', 'k', 'p', 'r', 's']))
+print("Unit Test #2", getAvailableLetters([]))
+print("Unit Test #3", getAvailableLetters(['s', 'm', 'u', 'k', 'x', 'd', 't', 'o', 'p', 'i', 'v']))
+print("Unit Test #4", getAvailableLetters(['o', 'j', 'w']))
+print("Unit Test #5", getAvailableLetters(['c', 'v', 'g', 'i', 'e']))
+print("Unit Test #6", getAvailableLetters(['v', 't', 'i', 'a', 'q', 'k', 'o', 'x', 'c', 'n', 'm', 'j']))
