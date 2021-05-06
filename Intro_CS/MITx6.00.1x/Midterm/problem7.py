@@ -1,3 +1,8 @@
+def f(i):
+    return i + 2
+def g(i):
+    return i > 5
+
 def applyF_filterG(L, f, g):
     """
     Assumes L is a list of integers
@@ -19,3 +24,8 @@ def applyF_filterG(L, f, g):
         return max(L)
     else:
         return -1
+
+#Test
+L = [0, -10, 5, 6, -4]
+print(applyF_filterG(L, f, g))
+print(L)
